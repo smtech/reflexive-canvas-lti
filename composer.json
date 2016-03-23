@@ -1,0 +1,48 @@
+{
+    "name": "smtech/reflexxive-canvas-lti",
+    "description": "LTI tool provider class that includes the \"reflexive\" reach back into Canvas via the API",
+    "config": {
+	    "secure-http": false
+    },
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "spvsoftwareproducts/LTI_Tool_Provider",
+				"version": "2.5.01",
+				"dist": {
+					"url": "http://projects.oscelot.org/gf/download/frsrelease/956/6025/LTI_Tool_Provider-2.5.01.zip",
+					"type": "zip"
+				},
+				"license": "LGPL-3.0",
+				"authors": [
+					{
+						"name": "Stephen Vickers"
+					}   
+				],
+				"homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/"
+			}
+		}
+	],
+    "require": {
+		"spvsoftwareproducts/LTI_Tool_Provider": "~2.5",
+        "smtech/canvaspest": "~1.0",
+        "battis/appmetadata": "~1.0",
+        "battis/simplecache": "~1.0",
+		"pear/log": "~1.0",
+        "zendframework/zend-permissions-rbac": "~2.5"
+    },
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "autoload": {
+	    "psr-4": {
+		    "smtech\\ReflexiveCanvasLTI\\": "src/"
+	    }
+    },
+    "minimum-stability": "dev"
+}

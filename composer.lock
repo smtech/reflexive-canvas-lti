@@ -1,0 +1,336 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "c8109ebf67489dca0e7a9a41fed902a4",
+    "content-hash": "2758d557bc3e16bdacc30175cefabaad",
+    "packages": [
+        {
+            "name": "battis/appmetadata",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/appmetadata.git",
+                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/appmetadata/zipball/a97bdc20627008ed165b638737b618a0d6f606c2",
+                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Battis\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "seth@battis.net"
+                }
+            ],
+            "description": "An object to store app metadata backed by a MySQL table",
+            "time": "2015-10-22 20:25:29"
+        },
+        {
+            "name": "battis/educoder-pest-fork",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/pest.git",
+                "reference": "ee99df2b7e276195d3ab06738f2af3f44f3ed054"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/pest/zipball/ee99df2b7e276195d3ab06738f2af3f44f3ed054",
+                "reference": "ee99df2b7e276195d3ab06738f2af3f44f3ed054",
+                "shasum": ""
+            },
+            "require": {
+                "lib-curl": "*",
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Zukowski",
+                    "email": "matt@zukowski.ca"
+                },
+                {
+                    "name": "Donald Sipe",
+                    "email": "donald.sipe@gmail.com"
+                }
+            ],
+            "description": "A proper REST client for PHP.",
+            "homepage": "https://github.com/educoder/pest",
+            "time": "2016-03-23 15:38:23"
+        },
+        {
+            "name": "battis/simplecache",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/battis/simplecache.git",
+                "reference": "5298aed74cd3911675b2bec147c346ed25261210"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/battis/simplecache/zipball/5298aed74cd3911675b2bec147c346ed25261210",
+                "reference": "5298aed74cd3911675b2bec147c346ed25261210",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    ""
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "seth@battis.net"
+                }
+            ],
+            "description": "Manage a simple cache backed by a MySQL database",
+            "time": "2015-12-17 02:04:27"
+        },
+        {
+            "name": "pear/log",
+            "version": "1.12.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Log.git",
+                "reference": "81b5109b6d3689c85118429c6e3ddd99ad90e9b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Log/zipball/81b5109b6d3689c85118429c6e3ddd99ad90e9b0",
+                "reference": "81b5109b6d3689c85118429c6e3ddd99ad90e9b0",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear_exception": "1.0.0",
+                "php": ">5.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "pear/db": "Install optionally via your project's composer.json"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Log": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                ""
+            ],
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Parise",
+                    "email": "jon@php.net",
+                    "homepage": "http://www.indelible.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PEAR Logging Framework",
+            "homepage": "http://pear.github.io/Log/",
+            "keywords": [
+                "log",
+                "logging"
+            ],
+            "time": "2015-06-14 21:18:47"
+        },
+        {
+            "name": "pear/pear_exception",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/PEAR_Exception.git",
+                "reference": "8c18719fdae000b690e3912be401c76e406dd13b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/8c18719fdae000b690e3912be401c76e406dd13b",
+                "reference": "8c18719fdae000b690e3912be401c76e406dd13b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=4.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "class",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PEAR": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "."
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Helgi Thormar",
+                    "email": "dufuz@php.net"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net"
+                }
+            ],
+            "description": "The PEAR Exception base class.",
+            "homepage": "https://github.com/pear/PEAR_Exception",
+            "keywords": [
+                "exception"
+            ],
+            "time": "2015-02-10 20:07:52"
+        },
+        {
+            "name": "smtech/canvaspest",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smtech/canvaspest.git",
+                "reference": "388949ed7bf3b6acb915024add0d6916c009feeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/388949ed7bf3b6acb915024add0d6916c009feeb",
+                "reference": "388949ed7bf3b6acb915024add0d6916c009feeb",
+                "shasum": ""
+            },
+            "require": {
+                "battis/educoder-pest-fork": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "smtech\\CanvasPest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "sethbattis@stmarksschool.org"
+                }
+            ],
+            "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
+            "time": "2016-03-18 02:21:36"
+        },
+        {
+            "name": "spvsoftwareproducts/LTI_Tool_Provider",
+            "version": "2.5.01",
+            "dist": {
+                "type": "zip",
+                "url": "http://projects.oscelot.org/gf/download/frsrelease/956/6025/LTI_Tool_Provider-2.5.01.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Vickers"
+                }
+            ],
+            "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/"
+        },
+        {
+            "name": "zendframework/zend-permissions-rbac",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-permissions-rbac.git",
+                "reference": "9ac97895fefcc6b0f5316e4cb1202633ed474686"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-permissions-rbac/zipball/9ac97895fefcc6b0f5316e4cb1202633ed474686",
+                "reference": "9ac97895fefcc6b0f5316e4cb1202633ed474686",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Permissions\\Rbac\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides a role-based access control management",
+            "homepage": "https://github.com/zendframework/zend-permissions-rbac",
+            "keywords": [
+                "rbac",
+                "zf2"
+            ],
+            "time": "2016-03-07 15:49:47"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
