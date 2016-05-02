@@ -8,4 +8,5 @@ class ReflexiveCanvasLTI_Exception extends \Exception {
 	const MISSING_API = 3;
 	const MISSING_INFORMATION = 4;
 	const UNKNOWN_REQUEST_TYPE = 5;
+	const MYSQL = 6;
 }

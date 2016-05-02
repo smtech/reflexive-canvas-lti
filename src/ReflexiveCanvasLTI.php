@@ -2,9 +2,22 @@
 	
 namespace smtech\ReflexiveCanvasLTI;
 
-use battis\AppMetadata;
-use battis\HierarchicalSimpleCache;
+use DOMDocument;
+use DOMXPath;
+use mysqli;
+use ReflectionClass;
+
+use Log;
+
+use LTI_User;
+use LTI_Tool_Provider;
+
+use Battis\AppMetadata;
+use Battis\ConfigXML;
+use Battis\HierarchicalSimpleCache;
+
 use smtech\CanvasPest\CanvasPest;
+
 use Zend\Permissions\Rbac\Rbac;
 use Zend\Permissions\Rbac\Role;
 
@@ -16,23 +29,23 @@ class ReflexiveCanvasLTI extends LTI_Tool_Provider {
 	const REQUEST_CONTENT_ITEM = 'content-item';
 	const REQUEST_CONFIGURE = 'configure';
 	const REQUEST_ERROR = 'error';
-	
+		
 	/** @var string[] $handlers */
 	protected $handlers = array();
 	
-	/** @var \battis\AppMetadata $metadata */
+	/** @var AppMetadata $metadata */
 	public $metadata = false;
 	
-	/** @var \smtech\CanvasPest\CanvasPest $api */
+	/** @var CanvasPest $api */
 	public $api = false;
 	
-	/** @var \mysqli $sql */
+	/** @var mysqli $sql */
 	public $sql = false;
 	
-	/** @var \battis\SimpleCache $cache */
+	/** @var SimpleCache $cache */
 	protected $cache = false;
 	
-	/** @var \Log $log */
+	/** @var Log $log */
 	protected $log = false;
 	
 	const ROLE_ADMIN = 'admin';
@@ -51,30 +64,39 @@ class ReflexiveCanvasLTI extends LTI_Tool_Provider {
 	 * for an LTI , (persistent app metadata, SQL database, role-based
 	 * access control, etc.)
 	 **/
-	public function __construct($sql, $handlerUrl, $metadata = false, $api = false, $log = false, $callbackHandler = NULL) {
+	public function __construct($sql, $handlerUrl, $metadata = null, $api = null, $log = null, $callbackHandler = null) {
 
 		$this->setSql($sql);
-
-		$this->cache = new HierarchicalSimpleCache($this->sql, __CLASS__);
-		$this->cache->purgeExpired();
 
 		parent::__construct(\LTI_Data_Connector::getDataConnector($this->sql), $callbackHandler);
 		
 		$this->setHandlerUrl($handlerUrl);
-		
-		if ($metadata) {
-			$this->setMetadata($metadata);
-		}
-		
-		if ($api) {
-			$this->setApi($api);
-		}
-		
-		if ($log) {
-			$this->setLog($log);
-		}
-		
+		$this->setMetadata($metadata);
+		$this->setApi($api);
+		$this->setLog($log);
 		$this->defineRbac();
+
+		$this->cache = new HierarchicalSimpleCache($this->sql, __CLASS__);
+		$this->cache->purgeExpired();
+	}
+		
+	public static function newInstanceFromConfig($configuration) {
+		$config = new ConfigXML($configuration);
+		$sql = $config->newInstanceOf(mysqli::class, 'mysql');
+		if ($sql->connect_error !== null) {
+			throw new ReflexiveCanvasLTI_Exception(
+				"MySQL error {$sql->connect_errno}: {$sql->connect_error}",
+				ReflexiveCanvasLTI_Exception::MYSQL
+			);
+		}
+		
+		return new ReflexiveCanvasLTI(
+			$sql,
+			$config->toArray('app/launch')[0],
+			new AppMetadata($sql, $config->toArray('app/id')[0]),
+			$config->newInstanceOf(CanvasPest::class, 'canvas'),
+			($config->count('app/log') ? $config->toArray('app/log') : null)
+		);
 	}
 	
 	/**
@@ -115,7 +137,7 @@ class ReflexiveCanvasLTI extends LTI_Tool_Provider {
 	/**
 	 * Check that this user has permission for a particular action
 	 **/
-	public function allows($user, $action) {
+	public function allows(LTI_User $user, $action) {
 		return $this->rbac->isGranted($user->getRole(), $action);
 	}
 	
@@ -162,56 +184,20 @@ class ReflexiveCanvasLTI extends LTI_Tool_Provider {
 		}
 	}
 	
-	public function setMetadata($metadata) {
-		if ($metadata instanceof AppMetadata) {
-			$this->metadata = $metadata;
-		} elseif ($metadata !== null) {
-			throw new ReflexiveCanvasLTI_Exception(
-				'Expected an instance of `battis\AppMetadata`, received `' . get_class($metadata) . '` instead.',
-				ReflexiveCanvasLTI_Exception::UNEXPECTED_TYPE
-			);
-		} else {
-			throw new ReflexiveCanvasLTI_Exception(
-				'An instance of `battis\AppMetadata` is required.',
-				ReflexiveCanvasLTI_Exception::MISSING_PARAMETER
-			);
-		}
+	public function setMetadata(AppMetadata $metadata) {
+		$this->metadata = $metadata;
 	}
 	
-	public function setApi($api) {
-		if ($api instanceof CanvasPest) {
-			$this->api = $api;
-		} elseif ($api !== null) {
-			throw new ReflexiveCanvasLTI_Exception(
-				'Expected an instance of `smtech\CanvasPest\CanvasPest`, received `' . get_class($api) . '` instead.',
-				ReflexiveCanvasLTI_Exception::UNEXPECTED_TYPE
-			);
-		} else {
-			throw new ReflexiveCanvasLTI_Exception(
-				'An instance of `smtech\CanvasPest\CanvasPest` is required.',
-				ReflexiveCanvasLTI_Exception::MISSING_PARAMETER
-			);
-		}
+	public function setApi(CanvasPest $api) {
+		$this->api = $api;
 	}
 	
-	public function setSql($sql) {
-		if ($sql instanceof \mysqli) {
-			$this->sql = $sql;
-		} elseif ($sql !== null) {
-			throw new ReflexiveCanvasLTI_Exception(
-				'Expected an instance of `mysqli`, received `' . get_class($sql) . '` instead.',
-				ReflexiveCanvasLTI_Exception::UNEXPECTED_TYPE
-			);
-		} else {
-			throw new ReflexiveCanvasLTI_Exception(
-				'An instance of `mysqli` is required.',
-				ReflexiveCanvasLTI_Exception::MISSING_PARAMETER
-			);
-		}
+	public function setSql(mysqli $sql) {
+		$this->sql = $sql;
 	}
 	
 	public function setLog($log) {		
-		if ($log instanceof \Log) {
+		if (is_a($log, Log::class)) {
 			$this->log = $log;
 		} elseif (is_array($log)){
 			$this->log = call_user_func_array(array('\Log::factory'), $log);
@@ -223,7 +209,7 @@ class ReflexiveCanvasLTI extends LTI_Tool_Provider {
 		}
 	}
 	
-	public function setHandlerUrl($requestType_or_list, $url = false) {
+	public function setHandlerUrl($requestType_or_list, $url = null) {
 		
 		/* figure out if we have a handler => URL pair, or an associative list of handler => URL pairs */
 		$list = false;

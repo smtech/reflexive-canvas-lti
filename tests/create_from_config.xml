@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<secrets>
+	<app>
+		<name>Reflexive Canvas LTI Example</name>
+		<id>reflexive-canvas-lti-example</id>
+		<launch>launch.php</launch>
+		<admin>
+			<user>admin</user>
+			<pasword>s00pers3kr3t</pasword>
+		</admin>
+	</app>
+	<mysql>
+		<host>localhost</host>
+		<username>hax0r</username>
+		<password>s00pers3kr3t</password>
+		<database>cavl</database>
+	</mysql>
+	<oauth>
+		<id>000000000000001</id>
+		<key>6987c1e292a98deff97c97f2cbc49985</key>
+	</oauth>
+</secrets>
