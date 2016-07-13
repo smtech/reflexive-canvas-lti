@@ -16,11 +16,11 @@ require_once 'common.inc.php';
 use smtech\ReflexiveCanvasLTI\ReflexiveCanvasLTI;
 use Battis\DataUtilities;
 
-$lti = new ReflexiveCanvasLTI(__DIR__ . '/config.xml', true);
+$lti = new ReflexiveCanvasLTI(__DIR__ . '/../config.xml', true);
 $lti->createConsumer('Example Consumer');
 
 function createUrl($action) {
-    return DataUtilities::URLfromPath(__DIR__) . "?action=$action";
+    return DataUtilities::URLfromPath(dirname(__DIR__)) . "?action=$action";
 }
 
 ?>
