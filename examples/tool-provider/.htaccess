@@ -1,0 +1,4 @@
+<Files ~ "(.xml|.sql|.inc.php|.md|.git*)">
+    Order allow,deny
+    Deny from all
+</Files>

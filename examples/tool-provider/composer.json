@@ -1,0 +1,15 @@
+{
+    "name": "smtech/reflexive-example",
+    "description": "An example LTI Tool Provider using smtech/reflexive-canvas-lti",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "smtech/reflexive-canvas-lti": "~1.0"
+    }
+}

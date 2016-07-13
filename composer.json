@@ -1,6 +1,19 @@
 {
     "name": "smtech/reflexive-canvas-lti",
     "description": "LTI tool provider class that includes the \"reflexive\" reach back into Canvas via the API",
+    "license": "LGPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "smtech\\ReflexiveCanvasLTI\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
     "config": {
         "secure-http": false
     },
@@ -33,26 +46,12 @@
         "spvsoftwareproducts/LTI_Tool_Provider": "~2.5",
         "smtech/canvaspest": "~1.0",
         "battis/appmetadata": "~1.0",
-        "battis/simplecache": "~1.0",
         "battis/configxml": "~1.0",
-        "battis/batch-action": "dev-master",
+        "battis/data-utilities": "~0.1",
         "pear/log": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0",
         "phpunit/dbunit": "~1.2"
-    },
-    "license": "LGPL-3.0",
-    "authors": [
-        {
-            "name": "Seth Battis",
-            "email": "sethbattis@stmarksschool.org"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "smtech\\ReflexiveCanvasLTI\\": "src/"
-        }
-    },
-    "minimum-stability": "dev"
+    }
 }

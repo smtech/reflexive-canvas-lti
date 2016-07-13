@@ -10,3 +10,4 @@ namespace smtech\ReflexiveCanvasLTI;
  * @see CanvasUser CanvasUser
  */
 class CanvasUser_Exception extends ReflexiveCanvasLTI_Exception {}
+

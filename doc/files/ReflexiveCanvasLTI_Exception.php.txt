@@ -17,3 +17,4 @@ class ReflexiveCanvasLTI_Exception extends \Exception {
 	const UNKNOWN_REQUEST_TYPE = 5;
 	const MYSQL = 6;
 }
+

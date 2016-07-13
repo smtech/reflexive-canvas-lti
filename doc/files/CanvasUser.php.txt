@@ -35,3 +35,4 @@ class CanvasUser extends LTI_User {
 		}
 	}
 }
+

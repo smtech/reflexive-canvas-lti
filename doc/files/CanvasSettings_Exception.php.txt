@@ -10,3 +10,4 @@ namespace smtech\ReflexiveCanvasLTI;
  * @see CanvasSettings CanvasSettings
  */
 class CanvasSettings_Exception extends ReflexiveCanvasLTI_Exception {}
+
