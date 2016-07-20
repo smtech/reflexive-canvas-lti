@@ -6,7 +6,11 @@ LTI tool provider class that includes the \"reflexive\" reach back into Canvas v
 
 See [Tool Provider](https://github.com/smtech/reflexive-canvas-lti/tree/master/examples/tool-provider) for an example of usage.
 
-# Composer Fiddly-bits
+## Caveat
+
+This is currently a work in progress, aiming to replace [starter-canvas-api-via-lti](https://github.com/smtech/starter-canvas-api-via-lti).
+
+## Composer Fiddly-bits
 
 _Nota bene:_ Because Steven Vickers hasn't yet published his `LTI_Tool_Provider` via [Composer](http://getcomposer.org), I _think_ the best way to incorporate his code is to replicate the following within your own `composer.json` file. (That way, when `smtech/reflexive-canvas-lti` depends on `spvsoftwareproducts/LTI_Tool_Provider`, Composer will know what we're all taking about.)
 
@@ -36,4 +40,12 @@ _Nota bene:_ Because Steven Vickers hasn't yet published his `LTI_Tool_Provider`
         }
     }
 ]
+```
+
+And also:
+
+```JSON
+"require": {
+    "smtech/reflexive-canvas-lti": "dev-master"
+}
 ```
