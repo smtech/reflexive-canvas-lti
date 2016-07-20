@@ -1,5 +1,7 @@
 # ReflexiveCanvasLTI
 
+[![Latest Version](https://img.shields.io/packagist/v/smtech/reflexive-canvas-lti.svg)](https://packagist.org/packages/smtech/rreflexive-canvas-lti)
+
 LTI tool provider class that includes the \"reflexive\" reach back into Canvas via the API.
 
 [Full documentation in repository.](https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/reflexive-canvas-lti/master/doc/namespaces/smtech.ReflexiveCanvasLTI.html)
