@@ -6,7 +6,7 @@
     <body>
         <h1>Error</h1>
 
-        <p><?= (empty($message) ? 'Something bad happened.' : $message) ?>
+        <pre><?= (empty($message) ? 'Something bad happened.' : print_r($message, true)) ?></pre>
     </body>
 </html>
 <?php exit ?>

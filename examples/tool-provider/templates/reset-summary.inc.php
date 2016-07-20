@@ -64,7 +64,9 @@ function createUrl($action) {
             </tbody>
         </table>
 
-        <h2>Configuration XML</h2>
+        <h2>LTI Configuration XML</h2>
+
+        <p>Provide this URL to Canvas when configuring a new app by URL.</p>
 
         <p>
             <a href="<?= createUrl('config'); ?>"><?= createUrl('config') ?></a>

@@ -2,13 +2,14 @@
 
 require_once 'common.inc.php';
 
-use smtech\ReflexiveCanvasLTI\ReflexiveCanvasLTI;
+use smtech\ReflexiveCanvasLTI\LTI\ToolProvider;
 
+/* look up the currently authenticated Canvas user's profile via API request */
 try {
-    $profile = $toolbox->get("users/{$_SESSION['user']['canvas']['user_id']}/profile");
+    $profile = $toolbox->get('users/' . $_SESSION[ToolProvider::class]['canvas']['user_id'] . '/profile');
 } catch (Exception $e) {
-    $message = $e->getMessage();
-    require 'error.inc.php';
+    $message = json_decode($e->getMessage(), true);
+    require TEMPLATE . '/error.inc.php';
 }
 
 ?>
@@ -19,6 +20,6 @@ try {
     </head>
     <body>
         <h1><?= $toolbox->config('TOOL_NAME') ?></h1>
-        <pre><?= print_r($profile) ?></pre>
+        <pre><?= print_r($profile, true) ?></pre>
     </body>
 </html>

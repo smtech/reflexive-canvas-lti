@@ -174,6 +174,8 @@ class ToolProvider extends LTI_Tool_Provider {
 
 	public function onLaunch() {
         $this->initSession();
+
+        /* blindly copied from Vickers' Rating demo app */
         $_SESSION[__CLASS__] = [
             'consumer_key' => $this->consumer->getKey(),
             'resource_id' => $this->resource_link->getId(),
@@ -182,6 +184,13 @@ class ToolProvider extends LTI_Tool_Provider {
             'isStudent' => $this->user->isLearner(),
             'isContentItem' => false
         ];
+
+        /* store Canvas settings */
+        if (!empty($this->user)) {
+            foreach($this->user->getResourceLink()->settings as $key => $value) {
+                $_SESSION[__CLASS__]['canvas'][str_replace('custom_canvas_', '', $key)] = $value;
+            }
+        }
 
 		$this->redirectURL = $this->assignRedirect('launch');
 	}
@@ -196,6 +205,7 @@ class ToolProvider extends LTI_Tool_Provider {
 
 	public function onContentItem() {
         $this->initSession();
+        /* blindly copied from Vickers' Rating demo app */
         $_SESSION[__CLASS__] = [
             'consumer_key' => $this->consumer->getKey(),
             'resource_id' => getGuid(),

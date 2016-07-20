@@ -3,8 +3,8 @@
 require_once 'common.inc.php';
 
 /* do we have an LTI request? */
-if (!empty($_REQUEST['lti_message_type'])) {
-    require 'templates/launch.inc.php';
+if ($toolbox->isLaunching()) {
+    require ACTION . '/launch.inc.php';
     exit;
 }
 
@@ -12,11 +12,11 @@ if (!empty($_REQUEST['lti_message_type'])) {
 $action = (empty($_REQUEST['action']) ? 'undefined' : strtolower($_REQUEST['action']));
 switch ($action) {
     case 'reset':
-        require 'templates/reset.inc.php';
+        require ACTION . '/reset.inc.php';
         exit;
 
     case 'config':
     default:
-        require 'templates/config.inc.php';
+        require ACTION . '/config.inc.php';
         exit;
 }

@@ -28,6 +28,6 @@
 	<!-- Credentials for Canvas API -->
 	<canvas>
 		<url>https://canvas.instructure.com/api/v1</url>
-		<token>1106~jd4ThoCKzR9oaWy8gOWNpFLxcNkFHZpcy99yOvvgJiAl6ZTJrhtIVT2chdSAQ0tE</token>
+		<token>1106~rd4ThECKzR9oaWy3gOXNpFLxcNkFHZpcy99yOvvgJiAl6fTJrhtIVT2chdSAC3tE</token>
 	</canvas>
 </config>

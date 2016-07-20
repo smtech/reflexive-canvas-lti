@@ -27,16 +27,19 @@ class Toolbox implements Serializable {
 	protected $metadata = false;
 
 	/** @var CanvasPest $api Provide object-oriented interface to Canvas API */
-	protected $api = false;
+	private $api = false;
 
 	/** @var mysqli $mysql Connection to MySQL database */
-	protected $mysql = false;
+	private $mysql = false;
 
 	/** @var ToolProv $toolProvider LTI tool provider */
-	protected $toolProvider;
+	private $toolProvider;
+
+	/** @var Generator $generator LTI Configuration XML generator */
+	private $generator;
 
 	/** @var Log $logger Log file manager */
-	protected $logger = false;
+	private $logger = false;
 
 	public function serialize() {
 		return serialize([
@@ -216,6 +219,10 @@ class Toolbox implements Serializable {
 		$this->getToolProvider()->execute();
 	}
 
+	public function isLaunching() {
+		return !empty($_POST['lti_message_type']);
+	}
+
 	public function createConsumer($name, $key = false, $secret = false) {
 		if ($this->getToolProvider()->createConsumer($name, $key, $secret)) {
 			$this->log("Created consumer $name");
@@ -237,19 +244,19 @@ class Toolbox implements Serializable {
 	}
 
 	public function get($url, $data = [], $headers = []) {
-		return $this->api->get($url, $data, $headers);
+		return $this->getAPI()->get($url, $data, $headers);
 	}
 
 	public function post($url, $data = [], $headers = []) {
-		return $this->api->post($url, $data, $headers);
+		return $this->getAPI()->post($url, $data, $headers);
 	}
 
 	public function put($url, $data = [], $headers = []) {
-		return $this->api->put($url, $data, $headers);
+		return $this->getAPI()->put($url, $data, $headers);
 	}
 
 	public function delete($url, $data = [], $headers = []) {
-		return $this->api->delete($url, $data, $heaers);
+		return $this->getAPI()->delete($url, $data, $heaers);
 	}
 
 	public function setMySQL(mysqli $mysql) {
@@ -283,19 +290,29 @@ class Toolbox implements Serializable {
 	 * @return boolean Success
 	 */
 	public function log($message, $priority = null) {
-		return $this->logger->log($message, $priority);
+		return $this->getLog()->log($message, $priority);
+	}
+
+	public function setGenerator(Generator $generator) {
+		$this->generator = $generator;
+	}
+
+	public function getGenerator() {
+		if (empty($this->generator)) {
+			$this->generator = new Generator(
+				$this->metadata['TOOL_NAME'],
+				$this->metadata['TOOL_ID'],
+				$this->metadata['TOOL_LAUNCH_URL'],
+				(empty($this->metadata['TOOL_DESCRIPTION']) ? false : $this->metadata['TOOL_DESCRIPTION']),
+				(empty($this->metadata['TOOL_ICON_URL']) ? false : $this->metadata['TOOL_ICON_URL']),
+				(empty($this->metadata['TOOL_LAUNCH_PRIVACY']) ? LaunchPrivacy::USER_PROFILE() : $this->metadata['TOOL_LAUNCH_PRIVACY']),
+				(empty($this->metadata['TOOL_DOMAIN']) ? false : $this->metadata['TOOL_DOMAIN'])
+			);
+		}
+		return $this->generator;
 	}
 
 	public function saveConfigurationXML() {
-		$generator = new Generator(
-	        $this->metadata['TOOL_NAME'],
-	        $this->metadata['TOOL_ID'],
-	        $this->metadata['TOOL_LAUNCH_URL'],
-	        (empty($this->metadata['TOOL_DESCRIPTION']) ? false : $this->metadata['TOOL_DESCRIPTION']),
-			(empty($this->metadata['TOOL_ICON_URL']) ? false : $this->metadata['TOOL_ICON_URL']),
-			(empty($this->metadata['TOOL_LAUNCH_PRIVACY']) ? LaunchPrivacy::USER_PROFILE() : $this->metadata['TOOL_LAUNCH_PRIVACY']),
-			(empty($this->metadata['TOOL_DOMAIN']) ? false : $this->metadata['TOOL_DOMAIN'])
-	    );
-		return $generator->saveXML();
+		return $this->getGenerator()->saveXML();
 	}
 }
