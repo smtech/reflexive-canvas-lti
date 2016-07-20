@@ -8,7 +8,7 @@ See [Tool Provider](https://github.com/smtech/reflexive-canvas-lti/tree/master/e
 
 ## Caveat
 
-This is currently a work in progress, aiming to replace [starter-canvas-api-via-lti](https://github.com/smtech/starter-canvas-api-via-lti).
+This is currently a work in progress, aiming to replace [starter-canvas-api-via-lti](https://github.com/smtech/starter-canvas-api-via-lti), which I am finding tempermental to use and burdensome to maintain in its current architecture. Plus also, `starter-canvas-api-via-lti` suffers the misfortune of litterin my project directories with files not actually directly related to my project, and I find that distracting and annoying.
 
 ## Composer Fiddly-bits
 
