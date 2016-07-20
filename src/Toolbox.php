@@ -175,6 +175,11 @@ class Toolbox implements Serializable {
 			$this->log('    Canvas API credentials configured');
 		}
 		$canvas = $this->metadata['TOOL_CANVAS_API'];
+		/*
+		 * IMPORTANT this must be the last action in the constructor so that the
+		 * CANVAS_API_INCORRECT exception can be caught without compromising the
+		 * integrity of the rest of the constructor!
+		 */
 		if (!empty($canvas['url']) && !empty($canvas['token'])) {
 			$this->setAPI(new CanvasPest($canvas['url'], $canvas['token']));
 		} else {
