@@ -48,10 +48,7 @@
         "battis/appmetadata": "~1.0",
         "battis/configxml": "~1.0",
         "battis/data-utilities": "~0.1",
+        "myclabs/php-enum": "~1.0",
         "pear/log": "~1.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~5.0",
-        "phpunit/dbunit": "~1.2"
     }
 }

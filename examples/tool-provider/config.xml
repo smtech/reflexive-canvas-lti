@@ -10,7 +10,7 @@
 
 		<!-- handler paths are relative to this configuration XML file -->
 		<handlers>
-			<launch>tool.php</launch>
+			<base>tool.php</base>
 		</handlers>
 
 		<!-- Where is the log file for the tool provider? (path relative to this XML file) -->
@@ -28,6 +28,6 @@
 	<!-- Credentials for Canvas API -->
 	<canvas>
 		<url>https://canvas.instructure.com/api/v1</url>
-		<token>1106~jd4GubPXmE9bnJl8gOJAcSYkpAxSUMcpy99yOvvgJiAy6MTJrhtIVT2chdSAQ0tR</token>
+		<token>1106~jd4ThoCKzR9oaWy8gOWNpFLxcNkFHZpcy99yOvvgJiAl6ZTJrhtIVT2chdSAQ0tE</token>
 	</canvas>
 </config>

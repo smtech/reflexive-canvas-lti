@@ -9,5 +9,4 @@
         <p><?= (empty($message) ? 'Something bad happened.' : $message) ?>
     </body>
 </html>
-
 <?php exit ?>
