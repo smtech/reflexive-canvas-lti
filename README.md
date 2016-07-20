@@ -14,7 +14,7 @@ This is currently a work in progress, aiming to replace [starter-canvas-api-via-
 
 ## Composer Fiddly-bits
 
-_Nota bene:_ Because Steven Vickers hasn't yet published his `LTI_Tool_Provider` via [Composer](http://getcomposer.org), I _think_ the best way to incorporate his code is to replicate the following within your own `composer.json` file. (That way, when `smtech/reflexive-canvas-lti` depends on `spvsoftwareproducts/LTI_Tool_Provider`, Composer will know what we're all taking about.)
+_Nota bene:_ Because Stephen Vickers hasn't yet published his `LTI_Tool_Provider` via [Composer](http://getcomposer.org), I _think_ the best way to incorporate his code is to replicate the following within your own `composer.json` file. (That way, when `smtech/reflexive-canvas-lti` depends on `spvsoftwareproducts/LTI_Tool_Provider`, Composer will know what we're all taking about.)
 
 ```JSON
 "repositories": [
