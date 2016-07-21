@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ef7460bafcf926f2ea6cc021d9f0488e",
-    "content-hash": "8ef8c62ccf4a463b7215d4c0a693ba18",
+    "hash": "a9717784461e48bb680bb1f23c25f85e",
+    "content-hash": "a546bdaca7c171a2119ec72e16603462",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -341,6 +341,42 @@
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
             "time": "2016-06-10 13:35:42"
+        },
+        {
+            "name": "smtech/lti-configuration-xml",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smtech/lti-configuration-xml.git",
+                "reference": "0828b0fb1d4311a56f84229f6b4e95e322345390"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smtech/lti-configuration-xml/zipball/0828b0fb1d4311a56f84229f6b4e95e322345390",
+                "reference": "0828b0fb1d4311a56f84229f6b4e95e322345390",
+                "shasum": ""
+            },
+            "require": {
+                "myclabs/php-enum": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "smtech\\LTI\\Configuration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "sethbattis@stmarksschool.org"
+                }
+            ],
+            "description": "Generate an LTI configuration XML file from parameters",
+            "time": "2016-07-21 02:12:02"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",

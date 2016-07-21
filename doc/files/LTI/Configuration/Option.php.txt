@@ -12,3 +12,4 @@ class Option extends Enum {
     const ACCOUNT_NAVIGATION = 'account_navigation';
     const USER_NAVIGATION = 'user_navigation';
 }
+

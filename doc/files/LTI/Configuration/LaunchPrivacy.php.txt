@@ -9,3 +9,4 @@ class LaunchPrivacy extends Enum {
     const NAME_ONLY = 'name_only';
     const ANONYMOUS = 'anonymous';
 }
+

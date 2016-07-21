@@ -45,6 +45,7 @@
     "require": {
         "spvsoftwareproducts/LTI_Tool_Provider": "~2.5",
         "smtech/canvaspest": "~1.0",
+        "smtech/lti-configuration-xml": "~1.0",
         "battis/appmetadata": "~1.0",
         "battis/configxml": "~1.0",
         "battis/data-utilities": "~0.1",

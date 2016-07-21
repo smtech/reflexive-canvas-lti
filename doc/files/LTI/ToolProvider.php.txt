@@ -294,3 +294,4 @@ class ToolProvider extends LTI_Tool_Provider {
 		$this->redirectURL = $this->assignRedirect('error');
 	}
 }
+

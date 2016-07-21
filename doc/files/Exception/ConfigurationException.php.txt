@@ -17,3 +17,4 @@ class ConfigurationException extends ReflexiveCanvasLTIException {
     const MYSQL = 4;
     const LOG = 5;
 }
+
