@@ -7,13 +7,13 @@ This example sets up a simple Tool Provider that can be added as an external app
 ### Quick Start
 
   1. Run `composer install` in this directory to load dependencies. ([Composer](http://getcomposer.org) is awesome!)
-  2. Edit `config.xml` to provide your own MySQL and Canvas API credentials.
+  2. Create `config.xml` based on `config.example.xml` to provide your own MySQL and Canvas API credentials.
   3. Point your browser at `https://your-server/path-to-this-directory?action=reset` (Yes, it needs to be an SSL connection -- Canvas gets grumpy if it isn't. Check out [Let's Encrypt](http://letsencrypt.org) for a free SSL certificate).
   4. Install the app in Canvas "by URL", using the provided key, shared secret and configuration XML URL.
 
 ### LTI Configuration via `config.xml`
 
-The `config.xml` file in this directory (see below for more details on other files) contains the basic information required for the LTI Tool Provider to function.
+The `config.example.xml` file in this directory (see below for more details on other files) contains the basic information required for the LTI Tool Provider to function. The app actually refers to `config.xml` where you will, presumably, store your _real_ credentials.
 
 ###### `tool`
 
@@ -45,10 +45,13 @@ I've made some attempt to modularize the structure of this example marginally cl
     - `index.php?action=config` provides a simple XML configuration file for use by Canvas an LTI Tool Consumer to create a "placement" of our Tool Provider... oy. Y'know when you go to install a new LTI app and you can do it by URL? _This_ is the URL that you use, along with the key and shared secret.
   - `tool.php` is the actual "app" -- in this case, all it does is look up the current user's profile via the Canvas API and then dump it to the screen.
   - 'LICENSE.md' and 'README.md' should be self-evident, since you're reading this.
-  - `templates/` are discrete snippets of code that actually provide some semblance of interface:
+  - `actions/` are snippets of PHP to perform discrete actions
     - `common.inc.php` is, again, the preamble that loads the Composer autoloader.
     - `config.inc.php` displays the LTI Tool Provider Configuration XML (for use by Tool Consumers during the installation process).
-    - `error.inc.php` displays errors.
     - `launch.inc.php` routes initial authentication requests from the Tool Consumer into the `ReflexiveCanvasLTI` authentication engine (really a thin wrapper for Steven Vickers' _very convenient_ `LTI_Tool_Provider`).
-    - `require-authentication.inc.php` will display an error if the current user is not properly authenticated, but does nothing if they are.
+    - `reset.inc.php` resets the configuration of the `Toolbox` from `config.xml`, recaching data
+  - `templates/` are rudimentary templates for generating HTML:
+    - `common.inc.php` is, again, the preamble that loads the Composer autoloader.
+    - `error.inc.php` displays errors.
+    - `reset-summary.inc.php` displays connection credentials for configuring a placement in Canvas
     - `user-profile.inc.php` looks up the current user's profile via the Canvas API.
