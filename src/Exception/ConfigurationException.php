@@ -1,6 +1,6 @@
 <?php
 
-namespace smtech\ReflexiveCanvasLTI;
+namespace smtech\ReflexiveCanvasLTI\Exception;
 
 use smtech\ReflexiveCanvasLTI\Exception\ReflexiveCanvasLTIException;
 

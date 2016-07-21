@@ -13,6 +13,7 @@ use Battis\DataUtilities;
 
 use smtech\CanvasPest\CanvasPest;
 use smtech\ReflexiveCanvasLTI\LTI\ToolProvider;
+use smtech\ReflexiveCanvasLTI\Exception\ConfigurationException;
 use smtech\LTI\Configuration\Generator;
 use smtech\LTI\Configuration\LaunchPrivacy;
 use smtech\LTI\Configuration\Exception\ConfigurationException as LTIConfigGeneratorException;
