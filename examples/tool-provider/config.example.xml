@@ -20,14 +20,14 @@
 	<!-- Credentials for MySQL database -->
 	<mysql>
 		<host>localhost</host>
-		<username>reflexive</username>
-		<password>ngi`k6gI$qKW589</password>
-		<database>reflexive</database>
+		<username>reflexive-example</username>
+		<password>ibd`f6jL$ySE589</password>
+		<database>reflexive-example</database>
 	</mysql>
 
 	<!-- Credentials for Canvas API -->
 	<canvas>
 		<url>https://canvas.instructure.com/api/v1</url>
-		<token>1106~rd4ThECKzR9oaWy3gOXNpFLxcNkFHZpcy99yOvvgJiAl6fTJrhtIVT2chdSAC3tE</token>
+		<token>1106~au4KyfTBqI9frVx8fNVVxNTfkVsNPHxkg99gWdyjMlDo6CWMmcoDQO2xcyNVL0oZ</token>
 	</canvas>
 </config>
