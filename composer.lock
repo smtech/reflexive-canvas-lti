@@ -9,22 +9,22 @@
     "packages": [
         {
             "name": "battis/appmetadata",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/appmetadata.git",
-                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2"
+                "reference": "1d9f4c7e29576dbd4ae0b56bd97c29fc8ff4c3b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/appmetadata/zipball/a97bdc20627008ed165b638737b618a0d6f606c2",
-                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2",
+                "url": "https://api.github.com/repos/battis/appmetadata/zipball/1d9f4c7e29576dbd4ae0b56bd97c29fc8ff4c3b5",
+                "reference": "1d9f4c7e29576dbd4ae0b56bd97c29fc8ff4c3b5",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Battis\\": ""
+                    "Battis\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -38,7 +38,7 @@
                 }
             ],
             "description": "An object to store app metadata backed by a MySQL table",
-            "time": "2015-10-22 20:25:29"
+            "time": "2016-07-22 06:29:17"
         },
         {
             "name": "battis/configxml",

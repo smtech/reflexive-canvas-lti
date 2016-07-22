@@ -9,4 +9,4 @@ session_regenerate_id(true);
 $_SESSION = [];
 
 /* authenticate the Tool Consumer and redirect to the appropriate handler URL */
-$toolbox->authenticate();
+$toolbox->lti_authenticate();

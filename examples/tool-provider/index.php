@@ -3,7 +3,7 @@
 require_once 'common.inc.php';
 
 /* do we have an LTI request? */
-if ($toolbox->isLaunching()) {
+if ($toolbox->lti_isLaunching()) {
     require ACTION . '/launch.inc.php';
     exit;
 }

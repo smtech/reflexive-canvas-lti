@@ -20,6 +20,6 @@ $_SESSION['toolbox'] = Toolbox::fromConfiguration(CONFIG_FILE, true);
 $toolbox =& $_SESSION['toolbox'];
 
 /* try to create an example consumer */
-$toolbox->createConsumer('Example Consumer');
+$toolbox->lti_createConsumer('Example Consumer');
 
 require TEMPLATE . '/reset-summary.inc.php';

@@ -255,20 +255,6 @@ class Toolbox implements Serializable {
 			}
 			$this->log('    Canvas API credentials configured');
 		}
-		$canvas = $this->metadata['TOOL_CANVAS_API'];
-		/*
-		 * IMPORTANT this must be the last action in the constructor so that the
-		 * CANVAS_API_INCORRECT exception can be caught without compromising the
-		 * integrity of the rest of the constructor!
-		 */
-		if (!empty($canvas['url']) && !empty($canvas['token'])) {
-			$this->setAPI(new CanvasPest($canvas['url'], $canvas['token']));
-		} else {
-			throw new ConfigurationException(
-				'Canvas URL and Token required',
-				ConfigurationException::CANVAS_API_INCORRECT
-			);
-		}
 	}
 
 	/**
@@ -351,7 +337,7 @@ class Toolbox implements Serializable {
 	 *
 	 * @return void
 	 */
-	public function authenticate() {
+	public function lti_authenticate() {
 		$this->getToolProvider()->execute();
 	}
 
@@ -360,7 +346,7 @@ class Toolbox implements Serializable {
 	 *
 	 * @return boolean
 	 */
-	public function isLaunching() {
+	public function lti_isLaunching() {
 		return !empty($_POST['lti_message_type']);
 	}
 
@@ -374,7 +360,7 @@ class Toolbox implements Serializable {
 	 * @param  string $secret (Optional) Shared secret
 	 * @return boolean Whether or not the consumer was created
 	 */
-	public function createConsumer($name, $key = false, $secret = false) {
+	public function lti_createConsumer($name, $key = false, $secret = false) {
 		if ($this->getToolProvider()->createConsumer($name, $key, $secret)) {
 			$this->log("Created consumer $name");
 			return true;
@@ -391,7 +377,7 @@ class Toolbox implements Serializable {
 	 *
 	 * @return LTI_Consumer[]
 	 */
-	public function getConsumers() {
+	public function lti_getConsumers() {
 		return $this->getToolProvider()->getConsumers();
 	}
 
@@ -410,6 +396,17 @@ class Toolbox implements Serializable {
 	 * @return CanvasPest
 	 */
 	public function getAPI() {
+		if (empty($this->api)) {
+			$canvas = $this->metadata['TOOL_CANVAS_API'];
+			if (!empty($canvas['url']) && !empty($canvas['token'])) {
+				$this->$api = new CanvasPest($canvas['url'], $canvas['token']);
+			} else {
+				throw new ConfigurationException(
+					'Canvas URL and Token required',
+					ConfigurationException::CANVAS_API_INCORRECT
+				);
+			}
+		}
 		return $this->api;
 	}
 
@@ -422,7 +419,7 @@ class Toolbox implements Serializable {
 	 * @param  string[] $headers (Optional)
 	 * @return \smtech\CanvasPest\CanvasObject|\smtech\CanvasPest\CanvasArray
 	 */
-	public function get($url, $data = [], $headers = []) {
+	public function api_get($url, $data = [], $headers = []) {
 		return $this->getAPI()->get($url, $data, $headers);
 	}
 
@@ -435,7 +432,7 @@ class Toolbox implements Serializable {
 	 * @param  string[] $headers (Optional)
 	 * @return \smtech\CanvasPest\CanvasObject|\smtech\CanvasPest\CanvasArray
 	 */
-	public function post($url, $data = [], $headers = []) {
+	public function api_post($url, $data = [], $headers = []) {
 		return $this->getAPI()->post($url, $data, $headers);
 	}
 
@@ -448,7 +445,7 @@ class Toolbox implements Serializable {
 	 * @param  string[] $headers (Optional)
 	 * @return \smtech\CanvasPest\CanvasObject|\smtech\CanvasPest\CanvasArray
 	 */
-	public function put($url, $data = [], $headers = []) {
+	public function api_put($url, $data = [], $headers = []) {
 		return $this->getAPI()->put($url, $data, $headers);
 	}
 
@@ -461,7 +458,7 @@ class Toolbox implements Serializable {
 	 * @param  string[] $headers (Optional)
 	 * @return \smtech\CanvasPest\CanvasObject|\smtech\CanvasPest\CanvasArray
 	 */
-	public function delete($url, $data = [], $headers = []) {
+	public function api_delete($url, $data = [], $headers = []) {
 		return $this->getAPI()->delete($url, $data, $heaers);
 	}
 
@@ -491,7 +488,7 @@ class Toolbox implements Serializable {
 	 * @param int $resultMode (Optional, defaults to `MYSQLI_STORE_RESULT`)
 	 * @return mixed
 	 */
-	public function query($query, $resultMode = MYSQLI_STORE_RESULT) {
+	public function mysql_query($query, $resultMode = MYSQLI_STORE_RESULT) {
 		return $this->getMySQL()->query($query, $resultMode);
 	}
 

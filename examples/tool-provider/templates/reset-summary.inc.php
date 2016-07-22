@@ -51,7 +51,7 @@ function createUrl($action) {
             </thead>
             <tbody>
                 <?php
-                    foreach ($toolbox->getConsumers() as $consumer) {
+                    foreach ($toolbox->lti_getConsumers() as $consumer) {
                         echo "
                             <tr>
                                 <td>{$consumer->name}</td>
