@@ -117,7 +117,7 @@ class Toolbox implements Serializable {
 	 * @return Toolbox
 	 */
 	public static function fromConfiguration($configFilePath, $forceRecache = false) {
-		return new Toolbox($configFilePath, $forceRecache);
+		return new static($configFilePath, $forceRecache);
 	}
 
 	/**
@@ -142,7 +142,6 @@ class Toolbox implements Serializable {
 	 * @return void
 	 */
 	protected function loadConfiguration($configFilePath, $forceRecache = false) {
-
 		$logQueue = [];
 
 		/* load the configuration file */
