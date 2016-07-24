@@ -35,9 +35,7 @@
                 ],
                 "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/",
                 "autoload": {
-                    "psr-4": {
-                        "" : ""
-                    }
+                    "classmap": ["./"]
                 }
             }
         }

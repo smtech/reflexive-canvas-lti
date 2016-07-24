@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a9717784461e48bb680bb1f23c25f85e",
-    "content-hash": "a546bdaca7c171a2119ec72e16603462",
+    "hash": "6a71e081152dfa2bb177b307bc315b8a",
+    "content-hash": "0d3d1e36248f0465b22c67accef2844f",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -389,9 +389,9 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "": ""
-                }
+                "classmap": [
+                    "./"
+                ]
             },
             "license": [
                 "LGPL-3.0"

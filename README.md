@@ -31,9 +31,7 @@ _Nota bene:_ Because Stephen Vickers hasn't yet published his `LTI_Tool_Provider
             ],
             "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/",
             "autoload": {
-                "psr-4": {
-                    "" : ""
-                }
+                "classmap": [""]
             }
         }
     }
