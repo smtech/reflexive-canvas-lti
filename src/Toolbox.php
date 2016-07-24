@@ -323,10 +323,12 @@ class Toolbox implements Serializable {
 	 */
 	public function getToolProvider() {
 		if (empty($this->toolProvider)) {
-			$this->setToolProvider(new ToolProvider(
-				$this->mysql,
-				$this->metadata['TOOL_HANDLER_URLS']
-			));
+			$this->setToolProvider(
+				new ToolProvider(
+					$this->mysql,
+					$this->metadata['TOOL_HANDLER_URLS']
+				)
+			);
 		}
 		return $this->toolProvider;
 	}
@@ -398,7 +400,7 @@ class Toolbox implements Serializable {
 		if (empty($this->api)) {
 			$canvas = $this->metadata['TOOL_CANVAS_API'];
 			if (!empty($canvas['url']) && !empty($canvas['token'])) {
-				$this->$api = new CanvasPest($canvas['url'], $canvas['token']);
+				$this->setAPI(new CanvasPest($canvas['url'], $canvas['token']));
 			} else {
 				throw new ConfigurationException(
 					'Canvas URL and Token required',
@@ -540,15 +542,17 @@ class Toolbox implements Serializable {
 	public function getGenerator() {
 		try {
 			if (empty($this->generator)) {
-				$this->generator = new Generator(
-					$this->metadata['TOOL_NAME'],
-					$this->metadata['TOOL_ID'],
-					$this->metadata['TOOL_LAUNCH_URL'],
-					(empty($this->metadata['TOOL_DESCRIPTION']) ? false : $this->metadata['TOOL_DESCRIPTION']),
-					(empty($this->metadata['TOOL_ICON_URL']) ? false : $this->metadata['TOOL_ICON_URL']),
-					(empty($this->metadata['TOOL_LAUNCH_PRIVACY']) ? LaunchPrivacy::USER_PROFILE() : $this->metadata['TOOL_LAUNCH_PRIVACY']),
-					(empty($this->metadata['TOOL_DOMAIN']) ? false : $this->metadata['TOOL_DOMAIN'])
-				);
+				$this->setGenerator(
+					new Generator(
+						$this->metadata['TOOL_NAME'],
+						$this->metadata['TOOL_ID'],
+						$this->metadata['TOOL_LAUNCH_URL'],
+						(empty($this->metadata['TOOL_DESCRIPTION']) ? false : $this->metadata['TOOL_DESCRIPTION']),
+						(empty($this->metadata['TOOL_ICON_URL']) ? false : $this->metadata['TOOL_ICON_URL']),
+						(empty($this->metadata['TOOL_LAUNCH_PRIVACY']) ? LaunchPrivacy::USER_PROFILE() : $this->metadata['TOOL_LAUNCH_PRIVACY']),
+						(empty($this->metadata['TOOL_DOMAIN']) ? false : $this->metadata['TOOL_DOMAIN'])
+					)
+					);
 			}
 		} catch (LTIConfigGeneratorException $e) {
 			throw new ConfigurationException(
