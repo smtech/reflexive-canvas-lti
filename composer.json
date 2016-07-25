@@ -13,7 +13,7 @@
             "smtech\\ReflexiveCanvasLTI\\": "src/"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "config": {
         "secure-http": false
     },
