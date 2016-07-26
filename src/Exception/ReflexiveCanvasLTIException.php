@@ -10,4 +10,7 @@ use Exception;
  * @author Seth Battis <SethBattis@stmarksschool.org>
  * @version v1.0
  */
-class ReflexiveCanvasLTIException extends Exception {}
+class ReflexiveCanvasLTIException extends Exception
+{
+    
+}
