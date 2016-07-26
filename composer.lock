@@ -344,16 +344,16 @@
         },
         {
             "name": "smtech/lti-configuration-xml",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/lti-configuration-xml.git",
-                "reference": "0828b0fb1d4311a56f84229f6b4e95e322345390"
+                "reference": "ab9a963bb0f9d4a6689c20af20532d3af7f49a1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/lti-configuration-xml/zipball/0828b0fb1d4311a56f84229f6b4e95e322345390",
-                "reference": "0828b0fb1d4311a56f84229f6b4e95e322345390",
+                "url": "https://api.github.com/repos/smtech/lti-configuration-xml/zipball/ab9a963bb0f9d4a6689c20af20532d3af7f49a1f",
+                "reference": "ab9a963bb0f9d4a6689c20af20532d3af7f49a1f",
                 "shasum": ""
             },
             "require": {
@@ -376,7 +376,7 @@
                 }
             ],
             "description": "Generate an LTI configuration XML file from parameters",
-            "time": "2016-07-21 02:12:02"
+            "time": "2016-07-26 18:38:05"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",
