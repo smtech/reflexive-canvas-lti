@@ -238,8 +238,7 @@ class ToolProvider extends LTI_Tool_Provider
             'user_consumer_key' => $this->user->getResourceLink()->getConsumer()->getKey(),
             'user_id' => $this->user->getId(),
             'isStudent' => $this->user->isLearner(),
-            'isContentItem' => false,
-            'httpReferrer' => $_SERVER['HTTP_RERRER']
+            'isContentItem' => false
         ];
 
         /* store Canvas settings */
@@ -294,8 +293,7 @@ class ToolProvider extends LTI_Tool_Provider
             'title' => postValue('title'),
             'text' => postValue('text'),
             'data' => postValue('data'),
-            'document_targets' => $this->documentTargets,
-            'httpReferrer' => $_SERVER['HTTP_REFERRER']
+            'document_targets' => $this->documentTargets
         ];
 
         $this->redirectURL = $this->assignRedirect('content-item');

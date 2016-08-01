@@ -416,7 +416,10 @@ class Toolbox implements Serializable
         if (empty($this->api)) {
             $canvas = $this->metadata['TOOL_CANVAS_API'];
             if (!empty($canvas['url']) && !empty($canvas['token'])) {
-                $this->setAPI(new CanvasPest($canvas['url'], $canvas['token']));
+                $this->setAPI(new CanvasPest(
+                    "{$canvas['url']}/api/v1", // TODO this seems crude
+                    $canvas['token']
+                ));
             } else {
                 throw new ConfigurationException(
                     'Canvas URL and Token required',
