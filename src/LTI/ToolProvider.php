@@ -83,12 +83,13 @@ class ToolProvider extends LTI_Tool_Provider
         foreach (explode(';', file_get_contents(dirname($composer->findFile(LTI_Tool_Provider::class)) .
             '/lti-tables-mysql.sql')) as $query) {
             if (!empty(trim($query))) {
-                if ($mysql->query($query) === false) {
-                    /*
-                     * TODO should there be some sort of logging here? If _some_ tables are
-                     *         present, that will trigger reloading all tables, which will generate
-                     *         ignorable errors.
-                     */
+                /*
+                 * TODO should there be some sort of testing or logging here?
+                 *      If _some_ tables are present, that will trigger
+                 *      reloading all tables, which will generate ignorable
+                 *      errors.
+                 */
+                $mysql->query($query)
                 }
             }
         }

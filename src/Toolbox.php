@@ -483,7 +483,7 @@ class Toolbox implements Serializable
      */
     public function api_delete($url, $data = [], $headers = [])
     {
-        return $this->getAPI()->delete($url, $data, $heaers);
+        return $this->getAPI()->delete($url, $data, $headers);
     }
 
     /**
