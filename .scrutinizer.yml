@@ -3,9 +3,18 @@ filter:
 
 checks:
     php: true
-    javascript: true
+#    javascript: true
 
 tools:
     php_code_sniffer:
         config:
             standard: "PSR2"
+
+# build:
+#    tests:
+#        override:
+#            -
+#                command: 'phpunit --coverage-clover=coverage.clover'
+#                coverage:
+#                    file: 'coverage.clover'
+#                    format: 'clover'
