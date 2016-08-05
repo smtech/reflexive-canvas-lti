@@ -89,8 +89,7 @@ class ToolProvider extends LTI_Tool_Provider
                  *      reloading all tables, which will generate ignorable
                  *      errors.
                  */
-                $mysql->query($query)
-                }
+                $mysql->query($query);
             }
         }
     }
