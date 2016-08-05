@@ -1,5 +1,5 @@
 filter:
-    excluded_paths: [doc/*, tests/*]
+    excluded_paths: [doc/*, examples/*, tests/*]
 
 checks:
     php: true
