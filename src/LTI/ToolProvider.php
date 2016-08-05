@@ -152,7 +152,7 @@ class ToolProvider extends LTI_Tool_Provider
         $list = false;
         if (is_array($requestType_or_list)) {
             $list = $requestType_or_list;
-        } elseif ($url && is_string($requestType_or_list)) {
+        } elseif (!empty($url) && is_string($requestType_or_list)) {
             $list[$requestType_or_list] = $url;
         }
 

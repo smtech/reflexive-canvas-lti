@@ -350,7 +350,7 @@ class Toolbox implements Serializable
      */
     public function lti_authenticate()
     {
-        $this->getToolProvider()->execute();
+        $this->getToolProvider()->handle_request();
     }
 
     /**
