@@ -13,7 +13,12 @@ See [Tool Provider](https://github.com/smtech/reflexive-canvas-lti/tree/master/e
 
 _Nota bene:_ Because Stephen Vickers hasn't yet published his `LTI_Tool_Provider` via [Composer](http://getcomposer.org), I _think_ the best way to incorporate his code is to replicate the following within your own `composer.json` file. (That way, when `smtech/reflexive-canvas-lti` depends on `spvsoftwareproducts/LTI_Tool_Provider`, Composer will know what we're all taking about.)
 
+Also: to download the `spvsoftwareproducts/LTI_Tool_Provider` package from its central repository, you _have_ to allow non-HTTPS downloads, which is a bit of a security hole. Not the end of the world, but not Best Practices, either.
+
 ```JSON
+"config": {
+    "secure-http": false
+},
 "repositories": [
     {
         "type": "package",
