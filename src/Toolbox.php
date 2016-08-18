@@ -612,4 +612,30 @@ class Toolbox implements Serializable
             );
         }
     }
+
+    /**
+     * Reset PHP session
+     *
+     * Handy for starting LTI authentication. Resets the session and stores a
+     * reference to this toolbox object in `$_SESSION[Toolbox::class]`.
+     *
+     * @link http://stackoverflow.com/a/14329752 StackOverflow discussion
+     *
+     * @return void
+     */
+    public function resetSession()
+    {
+        /*
+         * TODO not in love with suppressing errors
+         */
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            @session_start();
+        }
+        @session_destroy();
+        @session_unset();
+        @session_start();
+        session_regenerate_id(true);
+        $_SESSION[__CLASS__] =& $this;
+        session_write_close();
+    }
 }

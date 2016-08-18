@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0481f504da28814f233ea72ff1f8e112",
-    "content-hash": "99e7d9228d17c9a271f0a1541781562a",
+    "hash": "17623c5a5b3c0402df518363a3dd7a78",
+    "content-hash": "563c4482ebadfb6ecb6b91ac62eb4a99",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -156,16 +156,16 @@
         },
         {
             "name": "myclabs/php-enum",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/php-enum.git",
-                "reference": "07da9d1a7469941ae05b046193fac4c83bdb0d7e"
+                "reference": "e83e992a5b5a0858ef7adbc9239a749d71fb6979"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/07da9d1a7469941ae05b046193fac4c83bdb0d7e",
-                "reference": "07da9d1a7469941ae05b046193fac4c83bdb0d7e",
+                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/e83e992a5b5a0858ef7adbc9239a749d71fb6979",
+                "reference": "e83e992a5b5a0858ef7adbc9239a749d71fb6979",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
             "keywords": [
                 "enum"
             ],
-            "time": "2015-07-22 16:14:03"
+            "time": "2016-08-01 15:48:47"
         },
         {
             "name": "pear/log",
@@ -308,16 +308,16 @@
         },
         {
             "name": "smtech/canvaspest",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "c1a5b7901e5d637afd05158541b1090d70027ed4"
+                "reference": "677167d0f7dcfdc1360c7147ad406c11c9a82321"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/c1a5b7901e5d637afd05158541b1090d70027ed4",
-                "reference": "c1a5b7901e5d637afd05158541b1090d70027ed4",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/677167d0f7dcfdc1360c7147ad406c11c9a82321",
+                "reference": "677167d0f7dcfdc1360c7147ad406c11c9a82321",
                 "shasum": ""
             },
             "require": {
@@ -340,7 +340,7 @@
                 }
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
-            "time": "2016-07-25 02:29:48"
+            "time": "2016-08-05 16:39:04"
         },
         {
             "name": "smtech/lti-configuration-xml",
@@ -410,6 +410,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.6"
+    },
     "platform-dev": []
 }
