@@ -7,7 +7,23 @@ LTI tool provider class that includes the \"reflexive\" reach back into Canvas v
 
 [Full documentation in repository.](https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/reflexive-canvas-lti/master/doc/namespaces/smtech.ReflexiveCanvasLTI.html)
 
-See [Tool Provider](https://github.com/smtech/reflexive-canvas-lti/tree/master/examples/tool-provider) for an example of usage.
+This is one of two packages that are meant to facilitate and accelerate LTI development in PHP, allowing for built-in "reflexive" access to the Canvas APIs from the LTI Tool Provider.
+
+  1. This package, `smtech/reflexive-canvas-lti` is the "plain vanilla" version. That is: it's pure object-oriented goodness with no GUI to add any idiosyncratic flavoring to the process. That makes it a touch more limited, but also (one hopes) more reusable in the grand scheme of things.
+  2. The other package, [`smtech/stmarks-reflexive-canvas-lti`](https://github.com/smtech/stmarks-reflexive-canvas-lti) provides a bunch of handy GUI add-ons, including Smarty templating (via [`smtech/stmarkssmarty`](https://github.com/smtech/stmarks-bootstrapsmarty), the St. Mark's-styled extension of my generic [`battis/bootstrapsmarty`](https://github.com/battis/bootstrapsmarty) package that provides easy access to Bootstrap within Smarty templates). Additionally, this package, as it provides a GUI inherently, also provides some handy interactive control panels:
+      - [Toolbox::interactiveGetAccessToken()](https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/stmarks-reflexive-canvas-lti/master/doc/classes/smtech.StMarksReflexiveCanvasLTI.Toolbox.html#method_interactiveGetAccessToken) is pretty much what it sounds like: it handles acquiring an API access token from Canvas interactively (providing a well-configured `config.xml`, of course).
+      - [Toolbox::interactiveConsumersControlPanel()](https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/stmarks-reflexive-canvas-lti/master/doc/classes/smtech.StMarksReflexiveCanvasLTI.Toolbox.html#method_interactiveConsumersControlPanel) provides an interactive control panel for managing LTI tool consumer keys and secrets.
+
+## How to choose?
+
+It comes down to whether you like building web pages the way I like building web pages (striving for real Model-View-Controller separation, to make my code easier to read/understand), or if you have another paradigm that you prefer. If you like my way, I would recommend extending `smtech/stmarks-reflexive-canvas-lti` to including branding appropriate for your own institution and using that. If not, or if you are trying to avoid GUI-entanglements, this "plain vanilla" package fits the bill.
+
+## Sample code
+
+In the `examples` directory you will find two example tool providers:
+
+  1. [`tool-provider`](https://github.com/smtech/reflexive-canvas-lti/tree/master/examples/tool-provider) shows an example of an LTI Tool Provider constructed with the "plain vanilla" package (this one).
+  2. [`stmarks-tool-provider`](https://github.com/smtech/reflexive-canvas-lti/tree/master/examples/stmarks-tool-provider) shows the same example, tweaked to use `smtech/stmarks-reflexive-canvas-lti` instead -- which I think is cleaner, easier and simpler. But I'm biased.
 
 ## Composer Fiddly-bits
 
