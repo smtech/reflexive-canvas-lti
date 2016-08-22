@@ -1,3 +1,4 @@
 /vendor/
 /phpdoc/
 coverage.clover
+config.xml

@@ -4,27 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0fa5f1b3d3c4fe43e7a42aa768f56d25",
-    "content-hash": "e16eb5dbb4f8b934c90be85f5c003327",
+    "hash": "51a1dc12d4e4bb1d9a8a9b597a03eaad",
+    "content-hash": "1c32913ec7290a660b0f5779957bdaa8",
     "packages": [
         {
             "name": "battis/appmetadata",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/appmetadata.git",
-                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2"
+                "reference": "1d9f4c7e29576dbd4ae0b56bd97c29fc8ff4c3b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/appmetadata/zipball/a97bdc20627008ed165b638737b618a0d6f606c2",
-                "reference": "a97bdc20627008ed165b638737b618a0d6f606c2",
+                "url": "https://api.github.com/repos/battis/appmetadata/zipball/1d9f4c7e29576dbd4ae0b56bd97c29fc8ff4c3b5",
+                "reference": "1d9f4c7e29576dbd4ae0b56bd97c29fc8ff4c3b5",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Battis\\": ""
+                    "Battis\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -38,7 +38,7 @@
                 }
             ],
             "description": "An object to store app metadata backed by a MySQL table",
-            "time": "2015-10-22 20:25:29"
+            "time": "2016-07-22 06:29:17"
         },
         {
             "name": "battis/configxml",
@@ -114,7 +114,7 @@
         },
         {
             "name": "battis/educoder-pest-fork",
-            "version": "dev-master",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/pest.git",
@@ -156,16 +156,16 @@
         },
         {
             "name": "myclabs/php-enum",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/php-enum.git",
-                "reference": "07da9d1a7469941ae05b046193fac4c83bdb0d7e"
+                "reference": "e83e992a5b5a0858ef7adbc9239a749d71fb6979"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/07da9d1a7469941ae05b046193fac4c83bdb0d7e",
-                "reference": "07da9d1a7469941ae05b046193fac4c83bdb0d7e",
+                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/e83e992a5b5a0858ef7adbc9239a749d71fb6979",
+                "reference": "e83e992a5b5a0858ef7adbc9239a749d71fb6979",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
             "keywords": [
                 "enum"
             ],
-            "time": "2015-07-22 16:14:03"
+            "time": "2016-08-01 15:48:47"
         },
         {
             "name": "pear/log",
@@ -308,20 +308,20 @@
         },
         {
             "name": "smtech/canvaspest",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "d9b48fb1e368bbaccfd305c5fe49c07da1519f39"
+                "reference": "677167d0f7dcfdc1360c7147ad406c11c9a82321"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/d9b48fb1e368bbaccfd305c5fe49c07da1519f39",
-                "reference": "d9b48fb1e368bbaccfd305c5fe49c07da1519f39",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/677167d0f7dcfdc1360c7147ad406c11c9a82321",
+                "reference": "677167d0f7dcfdc1360c7147ad406c11c9a82321",
                 "shasum": ""
             },
             "require": {
-                "battis/educoder-pest-fork": "dev-master"
+                "battis/educoder-pest-fork": "~1.0"
             },
             "type": "library",
             "autoload": {
@@ -340,20 +340,56 @@
                 }
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
-            "time": "2016-06-10 13:35:42"
+            "time": "2016-08-05 16:39:04"
         },
         {
-            "name": "smtech/reflexive-canvas-lti",
-            "version": "v1.0",
+            "name": "smtech/lti-configuration-xml",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/smtech/reflexive-canvas-lti.git",
-                "reference": "c5521fdf27d5582f4778a76706469e560b21e130"
+                "url": "https://github.com/smtech/lti-configuration-xml.git",
+                "reference": "ab9a963bb0f9d4a6689c20af20532d3af7f49a1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/reflexive-canvas-lti/zipball/c5521fdf27d5582f4778a76706469e560b21e130",
-                "reference": "c5521fdf27d5582f4778a76706469e560b21e130",
+                "url": "https://api.github.com/repos/smtech/lti-configuration-xml/zipball/ab9a963bb0f9d4a6689c20af20532d3af7f49a1f",
+                "reference": "ab9a963bb0f9d4a6689c20af20532d3af7f49a1f",
+                "shasum": ""
+            },
+            "require": {
+                "myclabs/php-enum": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "smtech\\LTI\\Configuration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Seth Battis",
+                    "email": "sethbattis@stmarksschool.org"
+                }
+            ],
+            "description": "Generate an LTI configuration XML file from parameters",
+            "time": "2016-07-26 18:38:05"
+        },
+        {
+            "name": "smtech/reflexive-canvas-lti",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smtech/reflexive-canvas-lti.git",
+                "reference": "d3f533ca156a2a45392072ca1243ae2ce727e478"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smtech/reflexive-canvas-lti/zipball/d3f533ca156a2a45392072ca1243ae2ce727e478",
+                "reference": "d3f533ca156a2a45392072ca1243ae2ce727e478",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +398,9 @@
                 "battis/data-utilities": "~0.1",
                 "myclabs/php-enum": "~1.0",
                 "pear/log": "~1.0",
+                "php": ">=5.6",
                 "smtech/canvaspest": "~1.0",
+                "smtech/lti-configuration-xml": "~1.0",
                 "spvsoftwareproducts/lti_tool_provider": "~2.5"
             },
             "type": "library",
@@ -382,7 +420,7 @@
                 }
             ],
             "description": "LTI tool provider class that includes the \"reflexive\" reach back into Canvas via the API",
-            "time": "2016-07-20 16:22:13"
+            "time": "2016-08-18 12:53:20"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",
@@ -395,9 +433,9 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "": ""
-                }
+                "classmap": [
+                    "./"
+                ]
             },
             "license": [
                 "LGPL-3.0"

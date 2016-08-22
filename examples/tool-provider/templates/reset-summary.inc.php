@@ -15,7 +15,8 @@ require_once 'common.inc.php';
 
 use Battis\DataUtilities;
 
-function createUrl($action) {
+function createUrl($action)
+{
     return DataUtilities::URLfromPath(dirname(__DIR__)) . "?action=$action";
 }
 
@@ -51,15 +52,17 @@ function createUrl($action) {
             </thead>
             <tbody>
                 <?php
-                    foreach ($toolbox->lti_getConsumers() as $consumer) {
-                        echo "
-                            <tr>
-                                <td>{$consumer->name}</td>
-                                <td>{$consumer->getKey()}</td>
-                                <td>{$consumer->secret}</td>
-                            </tr>
-                        ";
-                    }
+
+                foreach ($toolbox->lti_getConsumers() as $consumer) {
+                    echo "
+                        <tr>
+                            <td>{$consumer->name}</td>
+                            <td>{$consumer->getKey()}</td>
+                            <td>{$consumer->secret}</td>
+                        </tr>
+                    ";
+                }
+                
                 ?>
             </tbody>
         </table>

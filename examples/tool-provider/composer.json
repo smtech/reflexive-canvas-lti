@@ -9,6 +9,9 @@
         }
     ],
     "minimum-stability": "dev",
+    "config": {
+        "secure-http": false
+    },
     "repositories": [
         {
             "type": "package",
@@ -27,14 +30,13 @@
                 ],
                 "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/",
                 "autoload": {
-                    "psr-4": {
-                        "" : ""
-                    }
+                    "classmap": ["./"]
                 }
             }
         }
     ],
     "require": {
-        "smtech/reflexive-canvas-lti": "~1.0"
+        "smtech/reflexive-canvas-lti": "~1.0",
+        "battis/data-utilities": "~0.1"
     }
 }

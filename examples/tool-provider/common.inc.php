@@ -8,13 +8,10 @@ define('CONFIG_FILE', __DIR__ . '/config.xml');
 define('ACTION', __DIR__ . '/actions');
 define('TEMPLATE', __DIR__ . '/templates');
 
-/* start a session (if one isn't already active) */
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+@session_start(); // TODO I don't feel good about suppressing warnings
 
-/* construct a toolbox if we don't already have one */
-if (empty($_SESSION['toolbox'])) {
-    $_SESSION['toolbox'] = Toolbox::fromConfiguration(CONFIG_FILE);
+/* prepare the toolbox */
+if (empty($_SESSION[Toolbox::class])) {
+    $_SESSION[Toolbox::class] =& Toolbox::fromConfiguration(CONFIG_FILE);
 }
-$toolbox =& $_SESSION['toolbox'];
+$toolbox =& $_SESSION[Toolbox::class];
