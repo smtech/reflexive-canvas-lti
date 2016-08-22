@@ -1,0 +1,10 @@
+# Block access to things that should stay private
+<Files ~ "(.xml|.sql|.inc.php|.git*|.log|.tpl)">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# block verboten directories
+# RedirectMatch 404 /consumers.php
+RedirectMatch 404 /src(/|$)
+RedirectMatch 404 /logs(/|$)

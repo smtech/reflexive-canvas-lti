@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpdoc>
+	<title>St. Mark's Reflexive Canvas LTI Example</title>
+	<parser>
+		<target>phpdoc</target>
+	</parser>
+	<transformer>
+		<target>doc</target>
+	</transformer>
+	<transformation>
+		<template name="responsive"/>
+	</transformation>
+	<files>
+		<directory>src</directory>
+	</files>
+</phpdoc>

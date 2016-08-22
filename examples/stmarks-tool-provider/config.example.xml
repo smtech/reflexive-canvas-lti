@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+
+    <!-- Information about the tool provider (used to generate config.xml for the tool!)-->
+    <tool>
+        <name>St. Mark's Reflexive Canvas LTI Example</name>
+        <description>An example LTI Tool Provider using `smtech/stmarks-reflexive-canvas-lti`</description>
+        <id>reflexive-example</id>
+        <authenticate>index.php</authenticate>
+
+        <!-- handler paths are relative to this configuration XML file -->
+        <handlers>
+            <base>index.php</base>
+        </handlers>
+
+        <!-- Where is the log file for the tool provider? (path relative to this XML file) -->
+        <log>../stmarks-tool-provider.log</log>
+    </tool>
+
+    <!-- Credentials for MySQL database -->
+    <mysql>
+        <host>localhost</host>
+        <username>reflexive-example</username>
+        <password>ibd`f6jL$ySE589</password>
+        <database>reflexive-example</database>
+    </mysql>
+
+    <!-- Credentials for Canvas API (either <url> and <token> OR <key> and <secret> for OAuth token request) -->
+    <canvas>
+        <key>160000000000012</key>
+        <secret>m4EHehkSO0aaXGO8v7rNm6w4EG4UyMbcHFic9uForeBkxlRIYAXiKPVOb2E3Bf4E</secret>
+    </canvas>
+</config>

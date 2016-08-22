@@ -1,0 +1,46 @@
+{
+    "name": "smtech/stmarks-reflexive-example",
+    "description": "An example LTI Tool Provider using smtech/stmarks-reflexive-canvas-lti",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sethbattis@stmarksschool.org"
+        }
+    ],
+    "config": {
+        "secure-http": false
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "spvsoftwareproducts/LTI_Tool_Provider",
+                "version": "2.5.01",
+                "dist": {
+                    "url": "http://projects.oscelot.org/gf/download/frsrelease/956/6025/LTI_Tool_Provider-2.5.01.zip",
+                    "type": "zip"
+                },
+                "license": "LGPL-3.0",
+                "authors": [
+                    {
+                        "name": "Stephen Vickers"
+                    }
+                ],
+                "homepage": "http://spvsoftwareproducts.com/php/lti_tool_provider/",
+                "autoload": {
+                    "classmap": ["./"]
+                }
+            }
+        }
+    ],
+    "require": {
+        "smtech/stmarks-reflexive-canvas-lti": "~0.2"
+    },
+    "license": "GPL-3.0",
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "smtech\\StMarksReflexiveCanvasLTIExample\\": "src"
+        }
+    }
+}
