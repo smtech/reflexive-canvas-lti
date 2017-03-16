@@ -300,14 +300,18 @@ class Toolbox implements Serializable
      * @param  mixed $value (Optional) If not present (or `null`), the current
      *     metadata is returned. If present, the metadata is created/updated
      * @return mixed If not updating the metadata, the metadata (if any)
-     *     currently stored
+     *     currently stored. If no metadata is currently stored, return `null`.
      */
     public function config($key, $value = null)
     {
         if ($value !== null) {
             $this->metadata[$key] = $value;
         } else {
-            return $this->metadata[$key];
+            if (isset($this->metadata[$key])) {
+                return $this->metadata[$key];
+            } else {
+                return null;
+            }
         }
     }
 
