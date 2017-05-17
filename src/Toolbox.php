@@ -300,18 +300,14 @@ class Toolbox implements Serializable
      * @param  mixed $value (Optional) If not present (or `null`), the current
      *     metadata is returned. If present, the metadata is created/updated
      * @return mixed If not updating the metadata, the metadata (if any)
-     *     currently stored. If no metadata is currently stored, return `null`.
+     *     currently stored
      */
     public function config($key, $value = null)
     {
         if ($value !== null) {
             $this->metadata[$key] = $value;
         } else {
-            if (isset($this->metadata[$key])) {
-                return $this->metadata[$key];
-            } else {
-                return null;
-            }
+            return $this->metadata[$key];
         }
     }
 
@@ -415,24 +411,23 @@ class Toolbox implements Serializable
 
      * @return CanvasPest
      */
-    public function getAPI()
-    {
-        if (empty($this->api)) {
-            $canvas = $this->metadata['TOOL_CANVAS_API'];
-            if (!empty($canvas['url']) && !empty($canvas['token'])) {
-                $this->setAPI(new CanvasPest(
-                    "{$canvas['url']}/api/v1", // TODO this seems crude
-                    $canvas['token']
-                ));
-            } else {
-                throw new ConfigurationException(
-                    'Canvas URL and Token required',
-                    ConfigurationException::CANVAS_API_INCORRECT
-                );
-            }
-        }
-        return $this->api;
-    }
+     public function getAPI()
+     {
+         if (empty($this->api)) {
+             if (!empty($this->metadata['TOOL_CANVAS_API']['token'])) {
+                 $this->setAPI(new CanvasPest(
+                     'https://' . $_SESSION[ToolProvider::class]['canvas']['api_domain'] . '/api/v1',
+                     $this->metadata['TOOL_CANVAS_API']['token']
+                 ));
+             } else {
+                 throw new ConfigurationException(
+                     'Canvas URL and Token required',
+                     ConfigurationException::CANVAS_API_INCORRECT
+                 );
+             }
+         }
+         return $this->api;
+     }
 
     /**
      * Make a GET request to the API
@@ -615,31 +610,5 @@ class Toolbox implements Serializable
                 ConfigurationException::TOOL_PROVIDER
             );
         }
-    }
-
-    /**
-     * Reset PHP session
-     *
-     * Handy for starting LTI authentication. Resets the session and stores a
-     * reference to this toolbox object in `$_SESSION[Toolbox::class]`.
-     *
-     * @link http://stackoverflow.com/a/14329752 StackOverflow discussion
-     *
-     * @return void
-     */
-    public function resetSession()
-    {
-        /*
-         * TODO not in love with suppressing errors
-         */
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            @session_start();
-        }
-        @session_destroy();
-        @session_unset();
-        @session_start();
-        session_regenerate_id(true);
-        $_SESSION[__CLASS__] =& $this;
-        session_write_close();
     }
 }
