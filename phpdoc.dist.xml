@@ -5,7 +5,7 @@
 		<target>phpdoc</target>
 	</parser>
 	<transformer>
-		<target>doc</target>
+		<target>docs</target>
 	</transformer>
 	<transformation>
 		<template name="responsive"/>

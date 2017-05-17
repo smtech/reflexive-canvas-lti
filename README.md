@@ -5,7 +5,7 @@
 
 LTI tool provider class that includes the \"reflexive\" reach back into Canvas via the API.
 
-[Full documentation in repository.](https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/reflexive-canvas-lti/master/doc/namespaces/smtech.ReflexiveCanvasLTI.html)
+[Full documentation in repository.](https://smtech.github.io/reflexive-canvas-lti/namespaces/smtech.ReflexiveCanvasLTI.html)
 
 This is one of two packages that are meant to facilitate and accelerate LTI development in PHP, allowing for built-in "reflexive" access to the Canvas APIs from the LTI Tool Provider.
 

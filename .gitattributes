@@ -1,5 +1,5 @@
 /phpdoc.dist.xml export-ignore
 /phpunit.xml export-ignore
-/doc/ export-ignore
+/docs/ export-ignore
 /examples/ export-ignore
 /tests/ export-ignore
