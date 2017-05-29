@@ -374,8 +374,10 @@ class Toolbox implements Serializable
     {
         if ($value !== null) {
             $this->metadata[$key] = $value;
-        } else {
+        } elseif (isset($this->metadata[$key])) {
             return $this->metadata[$key];
+        } else {
+            return null;
         }
     }
 
