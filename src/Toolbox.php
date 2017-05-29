@@ -193,6 +193,7 @@ class Toolbox implements Serializable
     {
         if ($forceRecache) {
             $this->log("Resetting LTI configuration from $configFilePath");
+            $this->config(static::TOOL_CONFIG_FILE, realpath($configFilePath));
         }
 
         /* load the configuration file */
@@ -216,7 +217,6 @@ class Toolbox implements Serializable
             empty($this->config(static::TOOL_CONFIG_FILE))) {
             $this->configToolMetadata($config, $id);
         }
-        $configPath = dirname($this->config(static::TOOL_CONFIG_FILE));
 
         /* configure logging */
         if ($forceRecache || empty($this->config(static::TOOL_LOG))) {
@@ -247,7 +247,6 @@ class Toolbox implements Serializable
 
         $this->config(static::TOOL_ID, $id);
         $this->config(static::TOOL_NAME, (empty($tool['name']) ? $id : $tool['name']));
-        $this->config(static::TOOL_CONFIG_FILE, realpath($configFilePath));
         $configPath = dirname($this->config(static::TOOL_CONFIG_FILE));
 
         if (!empty($tool['description'])) {
@@ -320,7 +319,7 @@ class Toolbox implements Serializable
             );
         }
         foreach ($handlers as $request => $path) {
-            $handlers[$request] = DataUtilities::URLfromPath("$configPath/$path");
+            $handlers[$request] = DataUtilities::URLfromPath(dirname($this->config(static::TOOL_CONFIG_FILE)) . "/$path");
         }
         $this->config(static::TOOL_HANDLER_URLS, $handlers);
         $this->log('    Tool provider handler URLs configured');
@@ -628,7 +627,7 @@ class Toolbox implements Serializable
      */
     protected function logReady()
     {
-        return is_a($this->log, Log::class);
+        return is_a($this->logger, Log::class);
     }
 
     /**
