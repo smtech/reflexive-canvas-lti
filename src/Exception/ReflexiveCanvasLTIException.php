@@ -1,4 +1,5 @@
 <?php
+/** ReflexiveCanvasLTIException class */
 
 namespace smtech\ReflexiveCanvasLTI\Exception;
 
@@ -12,5 +13,5 @@ use Exception;
  */
 class ReflexiveCanvasLTIException extends Exception
 {
-    
+
 }

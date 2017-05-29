@@ -1,4 +1,5 @@
 <?php
+/** ConfigurationException class */
 
 namespace smtech\ReflexiveCanvasLTI\Exception;
 

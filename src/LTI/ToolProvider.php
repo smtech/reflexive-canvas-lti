@@ -1,4 +1,5 @@
 <?php
+/** ToolProvider class */
 
 namespace smtech\ReflexiveCanvasLTI\LTI;
 
