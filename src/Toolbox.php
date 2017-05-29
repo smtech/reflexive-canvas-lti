@@ -249,41 +249,38 @@ class Toolbox implements Serializable
         $this->config(static::TOOL_NAME, (empty($tool['name']) ? $id : $tool['name']));
         $configPath = dirname($this->config(static::TOOL_CONFIG_FILE));
 
-        if (!empty($tool['description'])) {
-            $this->config(static::TOOL_DESCRIPTION, $tool['description']);
-        } else {
-            $this->clearConfig(static::TOOL_DESCRIPTION);
+        $params = [
+            'description' => static::TOOL_DESCRIPTION,
+            'icon' => static::TOOL_ICON_URL,
+            'domain' => static::TOOL_DOMAIN,
+            'launch-privacy' => static::TOOL_LAUNCH_PRIVACY
+        ];
+
+        foreach ($params as $src => $dest) {
+            if (empty($tool[$src])) {
+                $this->clearConfig($dest);
+            } else {
+                if (substr($dest, -4) == '_URL') {
+                    $this->config($dest, DataUtilities::URLfromPath(
+                        $tool[$src],
+                        $_SERVER,
+                        $configPath)
+                    );
+                } else {
+                    $this->config($dest, $tool[$src]);
+                }
+            }
         }
 
-        if (!empty($tool['icon'])) {
-            $this->config(static::TOOL_ICON_URL, (
-                file_exists("$configPath/{$tool['icon']}") ?
-                    DataUtilities::URLfromPath("$configPath/{$tool['icon']}") :
-                    $tool[self::ICON]
-            ));
-        } else {
-            $this->clearConfig(static::TOOL_ICON_URL);
+        if (empty($this->config(static::TOOL_LAUNCH_PRIVACY))) {
+            $this->config(static::TOOL_LAUNCH_PRIVACY, static::DEFAULT_LAUNCH_PRIVACY);
         }
 
-        $this->config(static::TOOL_LAUNCH_PRIVACY, (
-            empty($tool['launch-privacy']) ?
-                self::DEFAULT_LAUNCH_PRIVACY :
-                $tool['launch-privacy']
-        ));
-
-        if (!empty($tool['domain'])) {
-            $this->config(static::TOOL_DOMAIN, $tool['domain']);
-        } else {
-            $this->clearConfig(static::TOOL_DOMAIN);
+        if (empty($this->config(static::TOOL_LAUNCH_URL))) {
+            $this->config(static::TOOL_LAUNCH_URL, DataUtilities::URLfromPath($_SERVER['SCRIPT_FILENAME']));
         }
 
-        $this->config(static::TOOL_LAUNCH_URL, (
-            empty($tool['authenticate']) ?
-                DataUtilities::URLfromPath($_SERVER['SCRIPT_FILENAME']) :
-                DataUtilities::URLfromPath("$configPath/{$tool['authenticate']}")
-        ));
-
-        $this->log("    Tool metadata configured");
+        $this->log('Tool metadata configured');
     }
 
     /**
@@ -322,7 +319,7 @@ class Toolbox implements Serializable
             $handlers[$request] = DataUtilities::URLfromPath(dirname($this->config(static::TOOL_CONFIG_FILE)) . "/$path");
         }
         $this->config(static::TOOL_HANDLER_URLS, $handlers);
-        $this->log('    Tool provider handler URLs configured');
+        $this->log('Tool provider handler URLs configured');
     }
 
     /**
@@ -339,7 +336,7 @@ class Toolbox implements Serializable
                 ConfigurationException::CANVAS_API_MISSING
             );
         }
-        $this->log('    Canvas API credentials configured');
+        $this->log('Canvas API credentials configured');
     }
 
     /**

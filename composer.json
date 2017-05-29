@@ -47,7 +47,7 @@
         "smtech/lti-configuration-xml": "~1.0",
         "battis/appmetadata": "~1.0",
         "battis/configxml": "~1.0",
-        "battis/data-utilities": "~0.1",
+        "battis/data-utilities": "~0.1.3",
         "myclabs/php-enum": "~1.0",
         "pear/log": "~1.0"
     }

@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "17623c5a5b3c0402df518363a3dd7a78",
-    "content-hash": "563c4482ebadfb6ecb6b91ac62eb4a99",
+    "content-hash": "b6dfff9c118c4f190d87bd1343694eb1",
     "packages": [
         {
             "name": "battis/appmetadata",
@@ -38,7 +37,7 @@
                 }
             ],
             "description": "An object to store app metadata backed by a MySQL table",
-            "time": "2016-07-22 06:29:17"
+            "time": "2016-07-22T06:29:17+00:00"
         },
         {
             "name": "battis/configxml",
@@ -74,20 +73,20 @@
                 }
             ],
             "description": "Load a configuration XML file for quick use",
-            "time": "2016-05-09 19:47:21"
+            "time": "2016-05-09T19:47:21+00:00"
         },
         {
             "name": "battis/data-utilities",
-            "version": "v0.1",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/data-utilities.git",
-                "reference": "9efc9d29ad23d8a3a4d0803408eefbc7f681b012"
+                "reference": "81e9771db3f3cfa1a757179ad447ee40703c55a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/data-utilities/zipball/9efc9d29ad23d8a3a4d0803408eefbc7f681b012",
-                "reference": "9efc9d29ad23d8a3a4d0803408eefbc7f681b012",
+                "url": "https://api.github.com/repos/battis/data-utilities/zipball/81e9771db3f3cfa1a757179ad447ee40703c55a3",
+                "reference": "81e9771db3f3cfa1a757179ad447ee40703c55a3",
                 "shasum": ""
             },
             "require-dev": {
@@ -110,7 +109,7 @@
                 }
             ],
             "description": "A handful of useful helper functions to process data",
-            "time": "2016-07-12 14:40:23"
+            "time": "2017-05-29T18:41:18+00:00"
         },
         {
             "name": "battis/educoder-pest-fork",
@@ -152,20 +151,20 @@
             ],
             "description": "A proper REST client for PHP.",
             "homepage": "https://github.com/educoder/pest",
-            "time": "2016-03-23 15:38:23"
+            "time": "2016-03-23T15:38:23+00:00"
         },
         {
             "name": "myclabs/php-enum",
-            "version": "1.4.2",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/php-enum.git",
-                "reference": "e83e992a5b5a0858ef7adbc9239a749d71fb6979"
+                "reference": "61f4a24da5be216301447f3278ea6562609d61f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/e83e992a5b5a0858ef7adbc9239a749d71fb6979",
-                "reference": "e83e992a5b5a0858ef7adbc9239a749d71fb6979",
+                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/61f4a24da5be216301447f3278ea6562609d61f5",
+                "reference": "61f4a24da5be216301447f3278ea6562609d61f5",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +195,7 @@
             "keywords": [
                 "enum"
             ],
-            "time": "2016-08-01 15:48:47"
+            "time": "2017-03-26T10:24:21+00:00"
         },
         {
             "name": "pear/log",
@@ -249,7 +248,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2016-04-16 00:49:33"
+            "time": "2016-04-16T00:49:33+00:00"
         },
         {
             "name": "pear/pear_exception",
@@ -304,20 +303,20 @@
             "keywords": [
                 "exception"
             ],
-            "time": "2015-02-10 20:07:52"
+            "time": "2015-02-10T20:07:52+00:00"
         },
         {
             "name": "smtech/canvaspest",
-            "version": "v1.1.5",
+            "version": "v1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "677167d0f7dcfdc1360c7147ad406c11c9a82321"
+                "reference": "bc2b20da27fa568025fbd0296ce56705abccc2f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/677167d0f7dcfdc1360c7147ad406c11c9a82321",
-                "reference": "677167d0f7dcfdc1360c7147ad406c11c9a82321",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/bc2b20da27fa568025fbd0296ce56705abccc2f8",
+                "reference": "bc2b20da27fa568025fbd0296ce56705abccc2f8",
                 "shasum": ""
             },
             "require": {
@@ -340,7 +339,7 @@
                 }
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
-            "time": "2016-08-05 16:39:04"
+            "time": "2017-05-24T17:47:24+00:00"
         },
         {
             "name": "smtech/lti-configuration-xml",
@@ -376,7 +375,7 @@
                 }
             ],
             "description": "Generate an LTI configuration XML file from parameters",
-            "time": "2016-07-26 18:38:05"
+            "time": "2016-07-26T18:38:05+00:00"
         },
         {
             "name": "spvsoftwareproducts/LTI_Tool_Provider",
