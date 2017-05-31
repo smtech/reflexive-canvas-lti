@@ -316,7 +316,9 @@ class Toolbox implements Serializable
             );
         }
         foreach ($handlers as $request => $path) {
-            $handlers[$request] = DataUtilities::URLfromPath(dirname($this->config(static::TOOL_CONFIG_FILE)) . "/$path");
+            $handlers[$request] = DataUtilities::URLfromPath(
+                dirname($this->config(static::TOOL_CONFIG_FILE)) . "/$path"
+            );
         }
         $this->config(static::TOOL_HANDLER_URLS, $handlers);
         $this->log('Tool provider handler URLs configured');
@@ -393,6 +395,33 @@ class Toolbox implements Serializable
             return true;
         }
         return false;
+    }
+
+
+    /**
+     * Reset PHP session
+     *
+     * Handy for starting LTI authentication. Resets the session and stores a
+     * reference to this toolbox object in `$_SESSION[Toolbox::class]`.
+     *
+     * @link http://stackoverflow.com/a/14329752 StackOverflow discussion
+     *
+     * @return void
+     */
+    public function resetSession()
+    {
+        /*
+         * TODO not in love with suppressing errors
+         */
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            @session_start();
+        }
+        @session_destroy();
+        @session_unset();
+        @session_start();
+        session_regenerate_id(true);
+        $_SESSION[__CLASS__] =& $this;
+        session_write_close();
     }
 
     /**
@@ -524,7 +553,10 @@ class Toolbox implements Serializable
     /**
      * Make a GET request to the API
      *
+     * @codingStandardsIgnoreStart
      * @link https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/canvaspest/master/doc/classes/smtech.CanvasPest.CanvasPest.html#method_get Pass-through to CanvasPest::get()
+     * @codingStandardsIgnoreEnd
+     *
      * @param  string $url
      * @param  string[] $data (Optional)
      * @param  string[] $headers (Optional)
@@ -540,7 +572,10 @@ class Toolbox implements Serializable
     /**
      * Make a POST request to the API
      *
+     * @codingStandardsIgnoreStart
      * @link https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/canvaspest/master/doc/classes/smtech.CanvasPest.CanvasPest.html#method_post Pass-through to CanvasPest::post()
+     * @codingStandardsIgnoreEnd
+     *
      * @param  string $url
      * @param  string[] $data (Optional)
      * @param  string[] $headers (Optional)
@@ -556,7 +591,10 @@ class Toolbox implements Serializable
     /**
      * Make a PUT request to the API
      *
+     * @codingStandardsIgnoreStart
      * @link https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/canvaspest/master/doc/classes/smtech.CanvasPest.CanvasPest.html#method_put Pass-through to CanvasPest::put()
+     * @codingStandardsIgnoreEnd
+     *
      * @param  string $url
      * @param  string[] $data (Optional)
      * @param  string[] $headers (Optional)
@@ -572,7 +610,10 @@ class Toolbox implements Serializable
     /**
      * Make a DELETE request to the API
      *
+     * @codingStandardsIgnoreStart
      * @link https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/canvaspest/master/doc/classes/smtech.CanvasPest.CanvasPest.html#method_delete Pass-through to CanvasPest::delete()
+     * @codingStandardsIgnoreEnd
+     *
      * @param  string $url
      * @param  string[] $data (Optional)
      * @param  string[] $headers (Optional)
@@ -721,9 +762,12 @@ class Toolbox implements Serializable
                         $this->config(static::TOOL_NAME),
                         $this->config(static::TOOL_ID),
                         $this->config(static::TOOL_LAUNCH_URL),
-                        (empty($this->config(static::TOOL_DESCRIPTION)) ? false : $this->config(static::TOOL_DESCRIPTION)),
-                        (empty($this->config(static::TOOL_ICON_URL)) ? false : $this->config(static::TOOL_ICON_URL)),
-                        (empty($this->config(static::TOOL_LAUNCH_PRIVACY)) ? LaunchPrivacy::USER_PROFILE() : $this->config(static::TOOL_LAUNCH_PRIVACY)),
+                        (empty($this->config(static::TOOL_DESCRIPTION)) ?
+                            false : $this->config(static::TOOL_DESCRIPTION)),
+                        (empty($this->config(static::TOOL_ICON_URL)) ?
+                            false : $this->config(static::TOOL_ICON_URL)),
+                        (empty($this->config(static::TOOL_LAUNCH_PRIVACY)) ?
+                            LaunchPrivacy::USER_PROFILE() : $this->config(static::TOOL_LAUNCH_PRIVACY)),
                         (empty($this->config(static::TOOL_DOMAIN)) ? false : $this->config(static::TOOL_DOMAIN))
                     )
                 );
@@ -740,7 +784,9 @@ class Toolbox implements Serializable
     /**
      * Get the LTI configuration XML
      *
+     * @codingStandardsIgnoreStart
      * @link https://htmlpreview.github.io/?https://raw.githubusercontent.com/smtech/lti-configuration-xml/master/doc/classes/smtech.LTI.Configuration.Generator.html#method_saveXML Pass-through to `Generator::saveXML()`
+     * @codingStandardsIgnoreEnd
      *
      * @return string
      */
