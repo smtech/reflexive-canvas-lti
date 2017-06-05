@@ -191,16 +191,16 @@ class Toolbox implements Serializable
      */
     protected function loadConfiguration($configFilePath, $forceRecache = false)
     {
-        if ($forceRecache) {
-            $this->log("Resetting LTI configuration from $configFilePath");
-            $this->config(static::TOOL_CONFIG_FILE, realpath($configFilePath));
-        }
-
         /* load the configuration file */
         $config = new ConfigXML($configFilePath);
 
         /* configure database connections */
         $this->setMySQL($config->newInstanceOf(mysqli::class, '/config/mysql'));
+
+        if ($forceRecache) {
+            $this->log("Resetting LTI configuration from $configFilePath");
+            $this->config(static::TOOL_CONFIG_FILE, realpath($configFilePath));
+        }
 
         /* configure metadata caching */
         $id = $config->toString('/config/tool/id');
