@@ -253,7 +253,8 @@ class Toolbox implements Serializable
             'description' => static::TOOL_DESCRIPTION,
             'icon' => static::TOOL_ICON_URL,
             'domain' => static::TOOL_DOMAIN,
-            'launch-privacy' => static::TOOL_LAUNCH_PRIVACY
+            'launch-privacy' => static::TOOL_LAUNCH_PRIVACY,
+            'authenticate' => static::TOOL_LAUNCH_URL
         ];
 
         foreach ($params as $src => $dest) {

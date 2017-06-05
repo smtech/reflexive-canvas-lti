@@ -307,16 +307,16 @@
         },
         {
             "name": "smtech/canvaspest",
-            "version": "v1.1.7",
+            "version": "v1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/canvaspest.git",
-                "reference": "bc2b20da27fa568025fbd0296ce56705abccc2f8"
+                "reference": "9217c1741af90b2c769554f3cd61d1dfac7b6f75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/bc2b20da27fa568025fbd0296ce56705abccc2f8",
-                "reference": "bc2b20da27fa568025fbd0296ce56705abccc2f8",
+                "url": "https://api.github.com/repos/smtech/canvaspest/zipball/9217c1741af90b2c769554f3cd61d1dfac7b6f75",
+                "reference": "9217c1741af90b2c769554f3cd61d1dfac7b6f75",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +339,7 @@
                 }
             ],
             "description": "An extension of Pest to make RESTful queries to the Instructure Canvas API",
-            "time": "2017-05-24T17:47:24+00:00"
+            "time": "2017-05-31T18:44:02+00:00"
         },
         {
             "name": "smtech/lti-configuration-xml",
