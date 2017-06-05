@@ -197,11 +197,6 @@ class Toolbox implements Serializable
         /* configure database connections */
         $this->setMySQL($config->newInstanceOf(mysqli::class, '/config/mysql'));
 
-        if ($forceRecache) {
-            $this->log("Resetting LTI configuration from $configFilePath");
-            $this->config(static::TOOL_CONFIG_FILE, realpath($configFilePath));
-        }
-
         /* configure metadata caching */
         $id = $config->toString('/config/tool/id');
         if (empty($id)) {
@@ -209,6 +204,16 @@ class Toolbox implements Serializable
             $this->log("    Automatically generated ID $id");
         }
         $this->setMetadata(new AppMetadata($this->mysql, $id, self::TOOL_METADATA_TABLE));
+
+        /* is this the same config file we've been using, or a different one? */
+        if ($this->config(static::TOOL_CONFIG_FILE) != $configFilePath) {
+            $this->log('Provided config file path does not match ' . $this->config(static::TOOL_CONFIG_FILE));
+            $forceRecache = true;
+        }
+        if ($forceRecache) {
+            $this->log("Resetting LTI configuration from provided config $configFilePath");
+            $this->config(static::TOOL_CONFIG_FILE, realpath($configFilePath));
+        }
 
         /* update metadata */
         if ($forceRecache ||
