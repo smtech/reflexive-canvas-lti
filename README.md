@@ -3,6 +3,14 @@
 [![Latest Version](https://img.shields.io/packagist/v/smtech/reflexive-canvas-lti.svg)](https://packagist.org/packages/smtech/reflexive-canvas-lti)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/smtech/reflexive-canvas-lti/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/smtech/reflexive-canvas-lti/?branch=master)
 
+## Abandoned
+
+This project has not been actively maintained since the spring of 2017, when [Seth Battis](https://github.com/battis) changed roles and was no longer working in a Canvas (or other LTI-capable) environment. Other interested developers are welcome to take up the torch, if interested.
+
+Meanwhile, I observe that [Steven Vickers](https://github.com/spvickers) has released an updated version of his PHP [LTI Tool Provider](https://github.com/OSCELOT/LTI-PHP) that can serve as a base for further LTI development using PHP.
+
+## About
+
 LTI tool provider class that includes the \"reflexive\" reach back into Canvas via the API.
 
 [Full documentation in repository.](https://smtech.github.io/reflexive-canvas-lti/namespaces/smtech.ReflexiveCanvasLTI.html)
